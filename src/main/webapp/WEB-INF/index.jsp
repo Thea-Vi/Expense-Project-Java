@@ -31,11 +31,27 @@
 			<c:forEach var="travel" items="${allSaveTravel}">
 				<tr>
 					<td>
-					<a href="/expense/${travel.id}">${travel.name}></a>
+					<a href="/expense/${travel.id}">${travel.name}</a>
 					</td>
 					<td>${travel.vendor}</td>
 					<td>${travel.amount}</td>
-					<td><a href="">Edit</a></td>
+					
+					<!-- directs to edit page -->
+					<td>
+					<button class="btn btn-warning"><a href="/expense/edit/${travel.id}">Edit</a></button>
+					</td>
+					
+					
+					<td>
+		<%-- 			<a href="/expense/delete/${travel.id}"></a> --%>
+					
+					 <form action="/expense/delete/${travel.id}" method="post">
+					 	<input type="hidden" name="_method" value="delete" />
+					 	<input type="submit" value="delete" />
+					 </form>
+					
+					</td>
+				
 <%-- 					<td>${travel.description}</td>
  --%>					
 					
