@@ -26,19 +26,19 @@ public class SaveTravel {
 	private Long id;
 
 	@NotNull
-	@Size(min = 3, max = 30)
+	@Size(min = 3, max = 30, message = "Expense name must be at least 3-30 characters")
 	private String name;
 
 	@NotNull
-	@Size(min = 3, max = 30)
+	@Size(min = 3, max = 30, message = "Vendor name must be at least 3-30 characters")
 	private String vendor;
 
 	@NotNull
-	@Min(0)
+	@Min(value = 0, message = "Amount name must be at least 0")
 	private Double amount;
 
 	@NotNull
-	@Size(min = 3, max = 250)
+	@Size(min = 3, max = 250, message = "Description must be at least 3-250 characters")
 	private String description;
 
 	@Column(updatable = false)

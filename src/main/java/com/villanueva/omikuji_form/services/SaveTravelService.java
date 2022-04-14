@@ -22,15 +22,42 @@ public class SaveTravelService {
 	}
 
 //	shows the service how to access repository methods
-//	get all savetravels
+
+//	GET ALL savetravels
 
 	public List<SaveTravel> allSaveTravel() {
 		return (List<SaveTravel>) this.saveTravelRepository.findAll();
 	}
 
-//	create a new save travel
+//			CREATE
 	public SaveTravel createSaveTravel(SaveTravel saveTravel) {
-		return this.saveTravelRepository.save(null)
+		return this.saveTravelRepository.save(saveTravel);
+	}
+
+//	FIND A SAVE TRAVEL USING AN ID
+	public SaveTravel findOneSaveTravel(Long id) {
+		return this.saveTravelRepository.findById(id).orElse(null);
+	}
+
+//		another way of doing the above code
+//		Optional<SaveTravel> optionalSaveTravel = 
+//				this.saveTravelRepository.findById(id);
+//		if (optionalSaveTravel.isPresent()) {
+//			return optionalSaveTravel.get();
+//			
+//		}else {
+//			return null;
+//		}
+
+//	DELETE A SAVETRAVEL USING AN ID
+
+	public void deleteSaveTravel(Long id) {
+		this.saveTravelRepository.deleteById(id);
+	}
+
+// UPDATE A SAVETRAVEL USING AN ID
+	public SaveTravel updateSaveTravel(SaveTravel saveTravel) {
+		return this.saveTravelRepository.save(saveTravel);
 	}
 
 }
